@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DOTFILES="$HOME/dotfiles"
+DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 # Check brew
 if ! command -v brew &>/dev/null; then
