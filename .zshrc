@@ -9,6 +9,14 @@ setopt HIST_IGNORE_DUPS
 source ~/.zenv
 source ~/.zaliases
 
+# Completions (cached, rebuilds daily)
+autoload -Uz compinit
+if [[ -z ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
 # Init tools
 eval "$(starship init zsh)"
 eval "$(uv generate-shell-completion zsh)"

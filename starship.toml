@@ -20,6 +20,10 @@ format = '([$all_status$ahead_behind]($style) )'
 format = '[$symbol($profile )(\($region\))]($style) '
 symbol = " "
 
+[python]
+detect_extensions = []
+python_binary = []
+
 [character]
 success_symbol = "[>](bold green)"
 error_symbol = "[>](bold red)"
