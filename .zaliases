@@ -1,0 +1,4 @@
+# Aliases
+
+# Local overrides (not tracked in git)
+[ -f ~/.zaliases.local ] && source ~/.zaliases.local
