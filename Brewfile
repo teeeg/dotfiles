@@ -1,5 +1,7 @@
 brew "starship"
+brew "fzf"
 brew "gh"
+brew "node"
 brew "uv"
 brew "colima"
 brew "docker"
