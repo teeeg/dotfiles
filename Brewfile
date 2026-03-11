@@ -1,4 +1,7 @@
 brew "starship"
 brew "gh"
 brew "uv"
+brew "colima"
+brew "docker"
+brew "docker-compose"
 cask "font-cascadia-code-nf"
