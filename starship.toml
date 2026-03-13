@@ -3,6 +3,7 @@ $directory\
 $git_branch\
 $git_status\
 $python\
+$rust\
 $aws\
 $line_break\
 $character"""

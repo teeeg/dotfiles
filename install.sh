@@ -5,13 +5,19 @@ DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 # Check brew
 if ! command -v brew &>/dev/null; then
-  echo "Error: Homebrew not found. Install it first."
+  echo "Error: Homebrew not found. Install it first (requires sudo): https://brew.sh"
   exit 1
 fi
 
 # Install packages
 echo "Installing packages..."
 brew bundle --file="$DOTFILES/Brewfile"
+
+# Install rustup if not present
+if ! command -v rustup &>/dev/null; then
+  echo "Installing rustup..."
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+fi
 
 # Symlink files
 echo "Creating symlinks..."

@@ -20,3 +20,7 @@ fi
 # Init tools
 eval "$(starship init zsh)"
 eval "$(uv generate-shell-completion zsh)"
+if command -v rustup &>/dev/null; then
+  eval "$(rustup completions zsh)"
+  eval "$(rustup completions zsh cargo)"
+fi
