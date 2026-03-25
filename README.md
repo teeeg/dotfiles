@@ -1,21 +1,16 @@
-## Install
+Configures. Does not install everything.
 
 ```bash
-# Install Homebrew first: https://brew.sh
-git clone git@github.com:teeeg/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+# prereq: https://brew.sh
+git clone git@github.com:teeeg/dotfiles.git path/to/dotfiles
+cd path/to/dotfiles
 chmod +x install.sh
 ./install.sh
 ```
 
-Restart your terminal.
-
-## Post-install
+Restart your terminal, then:
 
 ```bash
-# GitHub CLI
 gh auth login
-
-# Git email (per machine)
 echo '[user]\n\temail = you@example.com' > ~/.gitconfig.local
 ```

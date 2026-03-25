@@ -3,21 +3,25 @@ set -e
 
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
-# Check brew
+# Load Homebrew into PATH if it's installed in a standard location
 if ! command -v brew &>/dev/null; then
-  echo "Error: Homebrew not found. Install it first (requires sudo): https://brew.sh"
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
+# Require Homebrew, but don't install it here
+if ! command -v brew &>/dev/null; then
+  echo "Error: Homebrew not found."
+  echo "Install it first from https://brew.sh, then rerun this script."
   exit 1
 fi
 
 # Install packages
 echo "Installing packages..."
 brew bundle --file="$DOTFILES/Brewfile"
-
-# Install rustup if not present
-if ! command -v rustup &>/dev/null; then
-  echo "Installing rustup..."
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-fi
 
 # Symlink files
 echo "Creating symlinks..."
